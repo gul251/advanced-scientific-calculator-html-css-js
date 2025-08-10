@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.png" type="image/png">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel=" stylesheet">
+  <title>Scientific Calculator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+     justify-content: center;
+     align-items: center;
+      height: 150%;
+      background: #975e5e;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+  display: flex;
+  justify-content: center; /* horizontally */
+  align-items: center;     /* vertically */
+  height: 110%;          /* full screen height */
+    /* just for background */
+
+}
+
+    .calculator {
+      background: #2d2b2b;
+     border-radius: 4px;
+      border: 6px solid #eae7e7;
+      border-top-left-radius: 18px;
+          border-top-right-radius: 18px;
+      border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+      box-shadow: 0 0 18px #000;
+      width: 350px;
+      height: 120%;
+      padding: 15px;
+      margin: 20px 20px;
+    }
+
+   .header{
+     margin-top: 5px;
+     margin-bottom: 5px;
+     display: flex;
+
+   }
+  
+    .scientific-calculator{
+     padding-top: 5px;
+     padding-bottom: 5px;
+      padding-left: 15px;
+      text-align: left;
+     
+      color: #bdb9b9;
+      font: 16px medium  ;
+      justify-content: start;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    
+
+  
+
+    input {
+      width: 93%;
+      height: 60px;
+      font-size: 24px;
+      text-align: right;
+     float: center;
+     color: rgb(103, 205, 103);
+     padding-left: 10px;
+     padding-right: 10px;
+      padding: 10px 10px;
+      margin-bottom: 15px;
+      border: 3px  solid #4a4747;
+      border-radius: 8px ;
+      border-color: orange;
+   
+    }
+
+    .button-main{
+      display: grid;
+      grid-template-columns: repeat(4, 2fr);
+      gap: 18px;
+      margin-right: 15px;
+      justify-content: space-between;
+      display: flex;
+      
+       
+    }
+    .buttons-main button {
+      box-shadow : (5px,5px,10px) #000000;
+      gap: 18px;
+      padding: 22px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+   
+   align-content: center;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-bottom:15px ;
+    }
+    .Red{
+    background-color: red;
+    color: red;
+    }
+   .Green{
+background-color: rgb(22, 148, 22);
+
+    }
+.Orange{
+  background-color: orange;
+}
+    .buttons-main button:hover {
+      background: #555;
+    }
+    
+
+    .buttons-scientific {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-bottom: 5px;
+     
+    }
+    .buttons-scientific button {
+      padding: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #444;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      
+    
+    }
+    .buttons-scientific button:hover {
+      background: #555;
+    }
+
+    .buttons-normal {
+      display: grid;
+      grid-template-columns: repeat(5, 2fr);
+      gap: 10px;
+     margin-bottom: 1px;
+      margin-top: 20px;
+     
+      box-shadow : (5px,5px,10px) #000000;
+    }
+ .buttons-normal button{
+   margin-bottom: 5px;
+        padding: 7px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #444;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .buttons-normal button:hover {
+      background: #555;
+    }
+ 
+
+ 
+    .wide {
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+<div class="calculator">
+ 
+  <div class="header" >
+
+    <h2 class="scientific-calculator" style="white flex-start 18px">SCIENTIFIC CALCULATOR</h2>
+ 
+ 
+
+  </div>
+   
+  <input type="text" id="display" readonly />
+
+
+  <div class="buttons-main">
+
+    <button class="Red" onclick="powerOff()" >OFF</button>
+    <button class="Orange" onclick="clearDisplay()" >AC</button> 
+    <button class="Green" onclick="backspace()" >←</button>
+    <button class="Red" onclick="powerOn()" >ON</button>
+  </div>
+
+    <div class="buttons-scientific">
+    <button onclick="append('Math.sin(')">sin</button>
+    <button onclick="append('Math.cos(')">cos</button>
+    <button onclick="append('Math.tan(')">tan</button>
+    <button onclick="append('Math.log(')">log</button>
+
+    <button onclick="append('Math.sqrt(')">√</button>
+    <button onclick="append('Math.pow(')">EXP^</button>
+    <button onclick="append('%')">%</button>
+    <button onclick="append('xsub2')">x&sup2;</button>
+  </div>
+
+  <div class="buttons-normal">
+
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button onclick="append('(')">(</button>
+    <button onclick="append(')')">)</button>
+    
+    
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button onclick="append('*')">×</button>
+    <button onclick="append('/')">÷</button>
+   
+    
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="append('+')">+</button>
+    <button onclick="append('-')">−</button>
+    
+
+    <button onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+    <button onclick="append('+/-')">+/-</button>
+    <button onclick="calculate()" class="wide">=</button>
+
+    
+  </div>
+</div>
+</div>
+<script>
+ 
+     let isPoweredOn = false;
+
+const display = document.getElementById("display");
+
+// Power ON
+function powerOn() {
+  isPoweredOn = true;
+  display.value = "";
+}
+
+// Power OFF
+function powerOff() {
+  isPoweredOn = false;
+  display.value = "";
+}
+
+// Clear Display
+function clearDisplay() {
+  if (!isPoweredOn) return;
+  display.value = "";
+}
+
+// Backspace
+function backspace() {
+  if (!isPoweredOn) return;
+  display.value = display.value.slice(0, -1);
+}
+
+// Append characters to display
+function append(value) {
+  if (!isPoweredOn) return;
+
+  if (value === "xsub2") {
+    display.value += "**2";
+  } else if (value === "+/-") {
+    toggleSign();
+  } else {
+    display.value += value;
+  }
+}
+
+// Toggle sign +/-
+function toggleSign() {
+  if (!isPoweredOn) return;
+  if (display.value.startsWith("-")) {
+    display.value = display.value.slice(1);
+  } else {
+    display.value = "-" + display.value;
+  }
+}
+
+// Calculate Result
+function calculate() {
+  if (!isPoweredOn) return;
+
+  try {
+    // Replace % with /100
+    let expression = display.value.replace(/%/g, "/100");
+
+    // Auto-close parentheses for Math functions like sin(30)
+    const openParens = (expression.match(/\(/g) || []).length;
+    const closeParens = (expression.match(/\)/g) || []).length;
+    const missingParens = openParens - closeParens;
+    for (let i = 0; i < missingParens; i++) {
+      expression += ")";
+    }
+
+    // Evaluate
+    let result = eval(expression);
+    display.value = result;
+  } catch (error) {
+    display.value = "Error";
+  }
+}
+
+</script>
+
+</body>
+</html>
