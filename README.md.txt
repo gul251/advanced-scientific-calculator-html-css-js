@@ -1,5 +1,7 @@
  Advanced Scientific Calculator | HTML, CSS, JavaScript
 
+https://github.com/gul251/advanced-scientific-calculator-html-css-js.git
+
 A "fully functional, responsive scientific calculator" built with "pure HTML, CSS, and JavaScript".  
 Includes "power control (ON/OFF)", advanced math functions (`sin`, `cos`, `tan`, `log`, `√`, `%`, exponent), backspace, and toggle sign.  
 
@@ -33,3 +35,4 @@ Click here to view the calculator
 1. Clone the repository:
   bash
    git clone https://github.com/YOURUSERNAME/advanced-scientific-calculator.git
+
